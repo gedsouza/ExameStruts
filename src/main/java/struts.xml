@@ -1,0 +1,26 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="login" method="login" class="action.LoginAction">
+			<result name="SUCCESS" type="redirect">listaExames</result>
+		</action>
+		<action name="listaExames" method="listarExame" class="action.ExamesAction">
+			<result name="SUCCESS">/listar_exames.jsp</result>
+		</action>
+		<action name="excluirExames" method="excluirExame" class="action.ExamesAction">
+			<result name="SUCCESS" type="redirect">listaExames</result>
+		</action>
+		<action name="cadastrarExames" method="cadastrarExame" class="action.ExamesAction">
+			<result name="SUCCESS" type="redirect">listaExames</result>
+		</action>
+		<action name="buscarExame" method="buscaExamePorId" class="action.ExamesAction">
+			<result name="SUCCESS">/atualiza_exame.jsp</result>
+		</action>
+		<action name="alterarExame" method="alteraExame" class="action.ExamesAction">
+			<result name="SUCCESS" type="redirect">listaExames</result>
+		</action>
+	</package>
+</struts>
