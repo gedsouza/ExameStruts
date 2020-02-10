@@ -133,7 +133,6 @@
 													<th>Email</th>
 													<th>Exame</th>
 													<th>Data</th>
-													<th>Situação</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -144,7 +143,7 @@
 														<td><s:url id="deleteURL" action="excluirExames">
 															<s:param name="id" value="%{id}"></s:param>
 															</s:url>
-								                		<s:a href="%{deleteURL}" class="confirmation"><img class="confirmacao" src="app-assets/images/delete.png" align="middle" alt="Excluir"></s:a> </td>
+								                		<s:a href="%{deleteURL}" class="confirmation"><img class="confirmacao" src="app-assets/images/delete.png" align="middle" alt="Excluir" style="margin-top: 7px"></s:a> </td>
 								                		<td><s:url id="atualizaURL" action="buscarExame">
 																<s:param name="id" value="%{id}"></s:param>
 															</s:url>
@@ -156,7 +155,6 @@
 														<td><s:property value="email" /></td>
 														<td><s:property value="tpExame" /></td>
 														<td><s:property value="data" /></td>
-														<td><s:property value="situacao" /></td>
 													</s:form>
 												</tr>
 											</s:iterator>          
@@ -181,6 +179,8 @@
 		    for (var i = 0, l = elems.length; i < l; i++) {
 		        elems[i].addEventListener('click', confirmIt, false);
 		    }
+		    
+		
 		</script>
 		<!-- BEGIN VENDOR JS-->
 		<script src="app-assets/vendors/js/vendors.min.js"

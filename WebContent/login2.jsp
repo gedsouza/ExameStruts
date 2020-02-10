@@ -68,14 +68,6 @@ data-open="click" data-menu="vertical-menu" data-col="1-column">
                           <i class="fa fa-key"></i>
                         </div>
                       </fieldset>
-                      <div class="form-group row">
-                        <div class="col-md-6 col-12 text-center text-md-left">
-                          <fieldset>
-                            <input type="checkbox" id="remember-me" class="chk-remember">
-                            <label for="remember-me"> Relembre-me</label>
-                          </fieldset>
-                        </div>
-                      </div>
                       <s:submit type="submit" cssClass="btn btn-primary btn-lg btn-block" value="Login"></s:submit>
                     </s:form>
                   </div>

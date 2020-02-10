@@ -15,6 +15,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Namespaces;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
 import dao.ExamesDAO;
 import model.Exame;
@@ -22,7 +23,7 @@ import soap.SOAPClientLocal;
 import to.ItemSoapTO;
 
 @Namespaces(value = { @Namespace("/"), @Namespace("/") })
-public class ExamesAction{
+public class ExamesAction extends ActionSupport{
 
 	private Exame exame = new Exame();
 
@@ -34,9 +35,15 @@ public class ExamesAction{
 	
 	private boolean sucesso;
 	
-	private SOAPClientLocal soap = new SOAPClientLocal();
-	
 	HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
+	
+	public boolean validar(){
+	    if (exame.getNome().length() == 0) {
+	        addFieldError("exame.nome", "Nome é obrigatório.");
+	        return true;
+	    }
+	    return false;
+	}
 
 	public String cadastrarExame() {  
 
@@ -74,17 +81,18 @@ public class ExamesAction{
 	public String buscaExamePorId() throws Exception {
 
 		try {
-//			exame = examesDAO.buscarExamePorId(Long.parseLong(request.getParameter("id")));
-			@SuppressWarnings("static-access")
-			SOAPMessage mensagem = soap.callWebService(Long.parseLong(request.getParameter("id")));
-			JAXBContext jbc = JAXBContext.newInstance(ItemSoapTO.class);
-						Unmarshaller um = jbc.createUnmarshaller();
-			System.out.println("AQUI");
-			System.out.println(mensagem.getSOAPBody().getElementsByTagName("getExameResponse").item(0).getTextContent());
+			exame = examesDAO.buscarExamePorId(Long.parseLong(request.getParameter("id")));
+//			@SuppressWarnings("static-access")
+//			SOAPMessage mensagem = soap.callWebService(Long.parseLong(request.getParameter("id")));
+//			JAXBContext jbc = JAXBContext.newInstance(ItemSoapTO.class);
+//						Unmarshaller um = jbc.createUnmarshaller();
+//			System.out.println("AQUI");
+//			System.out.println(mensagem.getSOAPBody().getElementsByTagName("getExameResponse").item(0).getTextContent());
 //			ItemSoapTO item = (ItemSoapTO) um.unmarshal(mensagem.getSOAPBody().extractContentAsDocument());
-			JAXBElement<ItemSoapTO> jb = um.unmarshal(mensagem.getSOAPBody(), ItemSoapTO.class); 
-			ItemSoapTO p = jb.getValue();
+//			JAXBElement<ItemSoapTO> jb = um.unmarshal(mensagem.getSOAPBody(), ItemSoapTO.class); 
+//			ItemSoapTO p = jb.getValue();
 	//		jaxbObjectToJSON(item); 
+			System.out.println("FINAL");
 		} catch (SQLException e) {
 			return "ERROR";
 		}

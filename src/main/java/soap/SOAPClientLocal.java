@@ -13,8 +13,6 @@ import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.soap.SOAPPart;
 
-import to.ItemSoapTO;
-
 public class SOAPClientLocal {
 	public static final String myNamespace = "ExameServiceImpl";
 	public static final String pref_prefix = "soapenv";
@@ -24,9 +22,8 @@ public class SOAPClientLocal {
 		SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
 		SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
-		String endpoint = "http://localhost:8090/Exames_WebService/services/ExameServiceImpl?wsdl";
+		String endpoint = "http://localhost:8080/Exames_WebService/services/ExameServiceImpl?wsdl";
 		soapResponse = soapConnection.call(createSOAPRequest(id), endpoint);
-		SOAPBody body = soapResponse.getSOAPBody();
 		soapConnection.close();
 		return soapResponse;
 	}

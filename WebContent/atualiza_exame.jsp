@@ -122,33 +122,39 @@
 									<div class="table-responsive">
 										<table id="recent-orders"
 											class="table table-hover mb-0 ps-container ps-theme-default">
-											<thead>
 												<tr>
-													<th>Nome</th>
-													<th>CPF</th>
-													<th>Telefone</th>
-													<th>Endereço</th>
-													<th>Email</th>
-													<th>Exame</th>
-													<th>Data</th>
-													<th>Situação</th>
+													<th style="width: 100px">Nome</th>
+													<td><s:textfield type="text" name="exame.nome" size="40" /> </td>
 												</tr>
-											</thead>
-											<tbody>
 												<tr>
-												      <td><s:textfield type="text" name="exame.nome" size="40" /> </td>
-												      <td><s:textfield type="text" name="exame.cpf" size="12" /> </td>
-												      <td><s:textfield type="text" name="exame.telefone" size="18"/> </td>
-												      <td><s:textfield type="text" name="exame.endereco" /> </td>
-												      <td><s:textfield type="text" name="exame.email" />  </td>
-												      <td><s:textfield type="text" name="exame.tpExame" /> </td>
-												      <td><s:textfield type="text" name="exame.data" /> </td>
-												      <td><s:textfield type="text" name="exame.situacao" /> </td>
+													<th>CPF</th>
+													<td><s:textfield type="text" name="exame.cpf" size="12" /> </td>
+												</tr>
+												<tr>
+													<th>Telefone</th>
+													<td><s:textfield type="text" name="exame.telefone" size="18"/> </td>
+												</tr>
+												<tr>
+													<th>Endereço</th>
+													<td><s:textfield type="text" name="exame.endereco" /> </td>
+												</tr>
+												<tr>
+													<th>Email</th>
+													<td><s:textfield type="text" name="exame.email" /> </td>
+												</tr>
+												<tr>
+													<th>Exame</th>
+												     <td><s:textfield type="text" name="exame.exame" />  </td>
+												</tr>
+												<tr>	
+													<th>Data</th>
+												    <td><s:textfield type="text" name="exame.data" /> </td>
+												</tr>	
+												</table>
+												<div style="height:30px">
 												      <s:hidden name="exame.id"/>
-												      <td><s:submit type="submit" value="Atualizar" align="center"/> </td>
-												 </tr>	         
-											</tbody>
-										</table>
+												      <s:submit type="submit" value="Atualizar" align="center" cssStyle="border-radius: 8px; background-color: #00B5B8; border: 1px solid #00B5B8; border-right: none; width: 100px; margin: 0 auto; display: block; font-weight: bold"/> </td>
+												</div>
 									</div>
 								</div>
 							</div>

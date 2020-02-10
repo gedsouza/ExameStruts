@@ -91,9 +91,9 @@
 					<li class=" nav-item"><a href="index.html"><i
 							class="ft-activity"></i><span class="menu-title" data-i18n="">Exames</span></a>
 						<ul class="menu-content">
-							<li class="active"><a class="menu-item"
+							<li><a class="menu-item"
 								href="listaExames">Consulta</a></li>
-							<li><a class="menu-item" href="adiciona_exame.jsp">Inclusao</a>
+							<li class="active"><a class="menu-item" href="adiciona_exame.jsp">Inclusao</a>
 							</li>
 						</ul></li>
 				</ul>
@@ -121,43 +121,71 @@
 								<div class="card-content">
 									<div class="table-responsive">
 										<table id="recent-orders"
-											class="table table-hover mb-0 ps-container ps-theme-default">
-											<thead>
+											class="table table-hover mb-0 ps-container ps-theme-default cadastro">
 												<tr>
-													<th>Nome</th>
-													<th>CPF</th>
-													<th>Telefone</th>
-													<th>Endereço</th>
-													<th>Email</th>
-													<th>Exame</th>
-													<th>Data</th>
-													<th>Situação</th>
+													<th style="width: 100px">Nome</th>
+													 <td><s:textfield type="text" name="exame.nome" size="40"/> </td>
 												</tr>
-											</thead>
-											<tbody>
 												<tr>
-												      <td><s:textfield type="text" name="exame.nome" size="40"/> </td>
-												      <td><s:textfield type="text" name="exame.cpf" size="12" /> </td>
+													<th>CPF</th>
+												      <td><s:textfield type="text" name="exame.cpf" size="18" id="cpf"/> </td>
+												</tr>
+												<tr>
+													<th>Telefone</th>
 												      <td><s:textfield type="text" name="exame.telefone" size="18"/> </td>
-												      <td><s:textfield type="text" name="exame.endereco" /> </td>
-												      <td><s:textfield type="text" name="exame.email" />  </td>
-												      <td><s:textfield type="text" name="exame.tpExame" /> </td>
-												      <td><s:textfield type="text" name="exame.data" /> </td>
-												      <td><s:textfield type="text" name="exame.situacao" /> </td>
-												      <td><s:submit type="submit" value="Adicionar" align="center"/>
-												 </tr>	         
-											</tbody>
-										</table>
+												</tr>
+												<tr>
+													<th>Endereço</th>
+												      <td><s:textfield type="text" name="exame.endereco" size="40" /> </td>
+												</tr>
+												<tr>
+													<th>Email</th>
+												      <td><s:textfield type="text" name="exame.email" size="40"/>  </td>
+												</tr>
+												<tr>
+													<th>Exame</th>
+												      <td><s:textfield type="text" name="exame.tpExame"/> </td>
+												</tr>
+												<tr>
+													<th>Data</th>
+												      <td><s:textfield type="text" name="exame.data"/> </td>
+												</tr>
+													</table>
+													  <div style="height: 30px;">
+												      		<td><s:submit type="submit" value="Adicionar" cssStyle="border-radius: 8px; background-color: #00B5B8; border: 1px solid #00B5B8; border-right: none; width: 100px; margin: 0 auto; display: block; font-weight: bold"/>
+													  </div>
+													         
+									
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					
+	
 				</div>
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+// 		$(document).ready(function(){
+// 		    $('.data').mask('00/00/0000');
+// 		});
+
+			    function mCPF(cpf){
+				cpf=cpf.replace(/\D/g,"");
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2");
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2");
+				cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
+				return cpf;
+			}
+			
+		</script>
+		<script>
+		jQuery(function($){
+		   $(".datas").mask("99/99/9999");
+		   $("#cpf").mask("999.999.999-99");
+		});
+</script>
 		<!-- BEGIN VENDOR JS-->
 		<script src="app-assets/vendors/js/vendors.min.js"
 			type="text/javascript"></script>
@@ -177,6 +205,8 @@
 		<script src="app-assets/js/core/app.js" type="text/javascript"></script>
 		<script src="app-assets/js/scripts/customizer.js"
 			type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+		<script src="http://digitalbush.com/files/jquery/maskedinput/rc3/jquery.maskedinput.js" type="text/javascript"></script>
 		<!-- END STACK JS-->
 		<!-- BEGIN PAGE LEVEL JS-->
 		<script src="app-assets/js/scripts/pages/dashboard-ecommerce.js"

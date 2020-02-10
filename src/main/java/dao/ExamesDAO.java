@@ -70,7 +70,7 @@ public class ExamesDAO {
 				exame.setEndereco(rs.getString("endereco"));
 				exame.setCpf(rs.getString("cpf"));
 				exame.setTpExame(rs.getString("exame"));
-				exame.setData(rs.getString("data"));
+				exame.setData(dateFormat.format(rs.getDate("data")));
 				exame.setSituacao(rs.getString("situacao"));
 				exame.setRetorno(rs.getString("retorno"));
 
@@ -104,7 +104,7 @@ public class ExamesDAO {
 				exame.setEndereco(rs.getString("endereco"));
 				exame.setCpf(rs.getString("cpf"));
 				exame.setTpExame(rs.getString("exame"));
-				exame.setData(rs.getString("data"));
+				exame.setData(dateFormat.format(rs.getDate("data")));
 				exame.setSituacao(rs.getString("situacao"));
 				exame.setRetorno(rs.getString("retorno"));
 			}

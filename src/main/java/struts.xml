@@ -6,6 +6,7 @@
 	<package name="default" extends="struts-default">
 		<action name="login" method="login" class="action.LoginAction">
 			<result name="SUCCESS" type="redirect">listaExames</result>
+			<result name="ERROR">/login2.jsp</result>
 		</action>
 		<action name="listaExames" method="listarExame" class="action.ExamesAction">
 			<result name="SUCCESS">/listar_exames.jsp</result>
